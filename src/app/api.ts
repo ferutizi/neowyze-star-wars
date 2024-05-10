@@ -1,4 +1,4 @@
-import { FilmType } from "./types"
+import { FilmType, CharacterType } from "./types"
 
 export const getFilms = async (): Promise<FilmType[]> => {
   try {
@@ -24,4 +24,28 @@ export const getFilm = async (id: number): Promise<FilmType> => {
     throw error
   }
 
+}
+
+export const getCharacters = async (): Promise<CharacterType[]> => {
+  try {
+    const res = await fetch("https://swapi.dev/api/people")
+    const characters = await res.json()
+    
+    return characters.results 
+  } catch (error) {
+    console.log(`Error al obtener los personajes:`, error)
+    throw error
+  }
+}
+
+export const getCharacter = async (id: string): Promise<CharacterType> => {
+  try {
+    const res = await fetch(`https://swapi.dev/api/people/${id}`)
+    const character = await res.json()
+    
+    return character
+  } catch (error) {
+    console.log(`Error al obtener el personaje. ID ${id}:`, error)
+    throw error
+  }
 }
