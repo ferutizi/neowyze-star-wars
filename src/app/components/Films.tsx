@@ -18,7 +18,7 @@ export default async function Films() {
             <article className="">
               <h2 className="text-2xl text-primary font-bold">{film.title}</h2>
               <Image src="/film-banner.jpg" alt={`Banner ${film.title}`} width={500} height={400} />
-              <p>Episode {getIdFromUrl(film.url)}</p>
+              <p className="text-xl py-2">Episode {getIdFromUrl(film.url)}</p>
             </article>
           </Link>
         )
