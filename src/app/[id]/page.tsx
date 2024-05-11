@@ -3,18 +3,14 @@ import { getFilm, getCharacter } from "../api"
 import { FilmType, CharacterType } from "../types"
 import AllCharacters from "./components/AllCharacters"
 import Link from "next/link"
+import { getIdFromUrl } from "../hooks/useGetIdFromUrl"
 
 export default async function FilmPage({ params: { id } }: { params: { id: number } }) {
   const film: FilmType = await getFilm(id)
 
-  const getIdFromUrl = (url: FilmType["url"]): string => {
-    const id = url.replace("https://swapi.dev/api/films/", "").replace("/", "")
-    return id
-  }
-
   const getCharacterDetails = async (characterURL: string): Promise<CharacterType | null> => {
     try {
-      const normalizedId = characterURL.replace("https://swapi.dev/api/people/", "").replace("/", "")
+      const normalizedId = getIdFromUrl({ query: { url: characterURL, q: "people" } })
       const character = await getCharacter(normalizedId)
       return character
     } catch (error) {
@@ -43,7 +39,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
             <img src="/film-banner.jpg" alt={`Banner ${film.title}`} width={700} height={400} />
             <div className="flex flex-col">
               <h1 className="text-5xl mb-4 font-bold">{film.title}</h1>
-              <p className="text-4xl text-primary opacity-85">Episodio: {getIdFromUrl(film.url)}</p>
+              <p className="text-4xl text-primary opacity-85">Episode: {getIdFromUrl({ query: { url: film.url, q: "films" } })}</p>
               <p className="text-2xl opacity-85">{film.director}</p>
             </div>
           </div>
@@ -52,7 +48,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
               charactersDetails.splice(0, 6).map((character, index) => (
                 <>
                   {character && (
-                    <Link href={`/characters/${character.url.replace("https://swapi.dev/api/people/", "").replace("/", "")}`}>
+                    <Link href={`/characters/${getIdFromUrl({ query: { url: character.url, q: "people" } })}`}>
                       <div key={index} className="hover:text-primary transition-all ease-in-out duration-300">
                         <h2 className="pl-2 text-lg">{character.name}</h2>
                         <img
@@ -64,14 +60,14 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
                           height={100}
                         />
                       </div>
-                    </Link>
+                    </Link >
                   )}
                 </>
               ))
             }
             <DynamicAllCharacters />
           </div>
-        </article>
+        </article >
       }
     </>
   )

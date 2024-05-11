@@ -1,21 +1,16 @@
 import Link from "next/link";
 import { getCharacters } from "../api";
-import { CharacterType } from "../types";
+import { getIdFromUrl } from "../hooks/useGetIdFromUrl";
 
 export default async function Characters() {
   const characters = await getCharacters()
-
-  const getIdFromUrl = (url: CharacterType["url"]): string => {
-    const id = url.replace("https://swapi.dev/api/people/", "").replace("/", "")
-    return id
-  }
 
   return (
     <section className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 p-14">
       {
         characters.map(({ name, url, gender, eye_color }) =>
           <article className="flex flex-col items-center">
-            <Link href={`characters/${getIdFromUrl(url)}`} key={name}>
+            <Link href={`characters/${getIdFromUrl({ query: { url: url, q: "people" } })}`} key={name}>
               <h2 className="text-2xl pl-2 text-primary font-bold">{name}</h2>
               <img className="rounded-lg" src="/character.png" alt={name} width={400} height={200} />
               <div className="flex justify-around">
