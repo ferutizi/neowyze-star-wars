@@ -12,13 +12,13 @@ export default function Nav() {
       <Link href="/">
         <button
           className={`${!isCharacterPage ? "bg-primary text-black" : "hover:text-primary"} font-bold rounded-full w-44 py-2 transition-all ease-in-out duration-200`}
-        >Películas
+        >Films
         </button>
       </Link>
       <Link href="/characters">
         <button
           className={`${isCharacterPage ? "bg-primary text-black" : "hover:text-primary"} font-bold rounded-full w-44 py-2 transition-all ease-in-out duration-200`}
-        >Personajes
+        >Characters
         </button>
       </Link>
     </nav>

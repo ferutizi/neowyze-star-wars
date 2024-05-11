@@ -18,7 +18,7 @@ export default async function Films() {
             <article className="">
               <h2>{film.title}</h2>
               <Image src="/film-banner.jpg" alt={`Banner ${film.title}`} width={1200} height={600} />
-              <p>Episodio {getIdFromUrl(film.url)}</p>
+              <p>Episode {getIdFromUrl(film.url)}</p>
             </article>
           </Link>
         )

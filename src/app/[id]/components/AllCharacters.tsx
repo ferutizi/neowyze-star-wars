@@ -14,7 +14,11 @@ export default function AllCharacters({ charactersDetails }: AllCharactersProps)
     <div className="grid col-span-6 grid-cols-6 gap-8 w-100vw justify-center">
       {
         !viewAll ?
-          <button className="col-span-6" onClick={() => setViewAll(true)}>Ver todos</button>
+          <button
+            className="col-span-6 decoration-white underline underline-offset-8 hover:decoration-primary transition-all ease-in-out duration-300"
+            onClick={() => setViewAll(true)}
+          >Show all
+          </button>
           : <>
             {charactersDetails?.map((character, index) => (
               <>
