@@ -2,8 +2,9 @@ import dynamic from "next/dynamic"
 import { getFilm, getCharacter } from "../api"
 import { FilmType, CharacterType } from "../types"
 import AllCharacters from "./components/AllCharacters"
+import Link from "next/link"
 
-export default async function FilmPage({params: {id}}: {params: {id: number}}) {
+export default async function FilmPage({ params: { id } }: { params: { id: number } }) {
   const film: FilmType = await getFilm(id)
 
   const getIdFromUrl = (url: FilmType["url"]): string => {
@@ -13,7 +14,7 @@ export default async function FilmPage({params: {id}}: {params: {id: number}}) {
 
   const getCharacterDetails = async (characterURL: string): Promise<CharacterType | null> => {
     try {
-      const normalizedId = characterURL.replace("https://swapi.dev/api/people/", "").replace("/", "").trim()
+      const normalizedId = characterURL.replace("https://swapi.dev/api/people/", "").replace("/", "")
       const character = await getCharacter(normalizedId)
       return character
     } catch (error) {
@@ -32,16 +33,16 @@ export default async function FilmPage({params: {id}}: {params: {id: number}}) {
     return <AllCharacters charactersDetails={charactersDetails} />
   }
 
-  const DynamicAllCharacters = dynamic(async () => allCharacters, {ssr: false})
+  const DynamicAllCharacters = dynamic(async () => allCharacters, { ssr: false })
 
-  return(
+  return (
     <>
       {film &&
         <article className="flex flex-col justify-center p-16 pb-4">
           <div className="flex gap-8">
-            <img src="/film-banner.jpg" alt={`Banner ${film.title}`} width={800} height={400} />
+            <img src="/film-banner.jpg" alt={`Banner ${film.title}`} width={700} height={400} />
             <div className="flex flex-col">
-              <h1 className="text-6xl mb-4">{film.title}</h1>
+              <h1 className="text-5xl mb-4 font-bold">{film.title}</h1>
               <p className="text-4xl text-primary opacity-85">Episodio: {getIdFromUrl(film.url)}</p>
               <p className="text-2xl opacity-85">{film.director}</p>
             </div>
@@ -51,17 +52,19 @@ export default async function FilmPage({params: {id}}: {params: {id: number}}) {
               charactersDetails.splice(0, 6).map((character, index) => (
                 <>
                   {character && (
-                    <div key={index}>
-                      <h2 className="pl-2 text-lg">{character.name}</h2>
-                      <img
-                        loading="lazy"
-                        className="rounded-lg"
-                        src="/character.png"
-                        alt={`${character.name}`}
-                        width={200}
-                        height={100}
-                      />
-                    </div>
+                    <Link href={`/characters/${character.url.replace("https://swapi.dev/api/people/", "").replace("/", "")}`}>
+                      <div key={index}>
+                        <h2 className="pl-2 text-lg">{character.name}</h2>
+                        <img
+                          loading="lazy"
+                          className="rounded-lg"
+                          src="/character.png"
+                          alt={`${character.name}`}
+                          width={200}
+                          height={100}
+                        />
+                      </div>
+                    </Link>
                   )}
                 </>
               ))
