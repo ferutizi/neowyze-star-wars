@@ -19,8 +19,22 @@ export default async function Characters() {
               <h2>{character.name}</h2>
               <img className="rounded-lg" src="/character.png" alt={character.name} width={400} height={200} />
               <div className="flex justify-around">
-                <p>{character.gender}</p>
-                <p>{character.eye_color}</p>
+                {
+                  character.gender !== "unknown" &&
+                  character.gender !== "n/a" &&
+                  <div className="flex items-center gap-4">
+                    <p>{character.gender}</p>
+                    <img className="h-4" src={`/${character.gender}.png`} alt="eye" height={8} />
+                  </div>
+                }
+                {
+                  character.eye_color !== "unknown" &&
+                  character.eye_color !== "n/a" &&
+                  <div className="flex items-center gap-4">
+                    <img className={`h-6 eye ${"eye-" + character.eye_color}`} src="eye.png" alt="eye" height={8} />
+                    <p>{character.eye_color}</p>
+                  </div>
+                }
               </div>
             </Link>
           </article>
