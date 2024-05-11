@@ -16,8 +16,8 @@ export default async function Films() {
         films.map(film => 
           <Link href={`/${getIdFromUrl(film.url)}`} key={film.episode_id}>
             <article className="">
-              <h2>{film.title}</h2>
-              <Image src="/film-banner.jpg" alt={`Banner ${film.title}`} width={1200} height={600} />
+              <h2 className="text-2xl text-primary font-bold">{film.title}</h2>
+              <Image src="/film-banner.jpg" alt={`Banner ${film.title}`} width={500} height={400} />
               <p>Episode {getIdFromUrl(film.url)}</p>
             </article>
           </Link>
