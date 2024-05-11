@@ -13,26 +13,26 @@ export default async function Characters() {
   return (
     <section className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 p-14">
       {
-        characters.map((character) =>
+        characters.map(({ name, url, gender, eye_color }) =>
           <article className="flex flex-col items-center">
-            <Link href={`characters/${getIdFromUrl(character.url)}`} key={character.name}>
-              <h2>{character.name}</h2>
-              <img className="rounded-lg" src="/character.png" alt={character.name} width={400} height={200} />
+            <Link href={`characters/${getIdFromUrl(url)}`} key={name}>
+              <h2 className="text-2xl pl-2 text-primary font-bold">{name}</h2>
+              <img className="rounded-lg" src="/character.png" alt={name} width={400} height={200} />
               <div className="flex justify-around">
                 {
-                  character.gender !== "unknown" &&
-                  character.gender !== "n/a" &&
+                  gender !== "unknown" &&
+                  gender !== "n/a" &&
                   <div className="flex items-center gap-4">
-                    <p>{character.gender}</p>
-                    <img className="h-4" src={`/${character.gender}.png`} alt="eye" height={8} />
+                    <p className="text-xl py-2">{gender}</p>
+                    <img className="h-4" src={`/${gender}.png`} alt="eye" height={8} />
                   </div>
                 }
                 {
-                  character.eye_color !== "unknown" &&
-                  character.eye_color !== "n/a" &&
+                  eye_color !== "unknown" &&
+                  eye_color !== "n/a" &&
                   <div className="flex items-center gap-4">
-                    <img className={`h-6 eye ${"eye-" + character.eye_color}`} src="eye.png" alt="eye" height={8} />
-                    <p>{character.eye_color}</p>
+                    <img className={`h-6 eye ${"eye-" + eye_color}`} src="eye.png" alt="eye" height={8} />
+                    <p className="text-xl py-2">{eye_color}</p>
                   </div>
                 }
               </div>
