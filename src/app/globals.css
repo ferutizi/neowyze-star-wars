@@ -18,16 +18,45 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.eye-black,
+.eye {
+  filter: invert(21%) sepia(1%) saturate(1713%) hue-rotate(187deg) brightness(92%) contrast(88%);
+}
+
+.eye-blue,
+.eye-gray-blue {
+  filter: invert(21%) sepia(100%) saturate(2224%) hue-rotate(211deg) brightness(90%) contrast(86%);
+}
+
+.eye-yellow,
+.eye-gold {
+  filter: invert(74%) sepia(92%) saturate(450%) hue-rotate(4deg) brightness(100%) contrast(87%);
+}
+
+.eye-red {
+  filter: invert(11%) sepia(72%) saturate(6353%) hue-rotate(358deg) brightness(96%) contrast(115%);
+}
+
+.eye-brown,
+.eye-hazel {
+  filter: invert(31%) sepia(29%) saturate(1141%) hue-rotate(358deg) brightness(97%) contrast(93%);
+}
+
+.eye-orange {
+  filter: invert(58%) sepia(11%) saturate(7049%) hue-rotate(353deg) brightness(86%) contrast(84%);
+}
+
+.eye-pink {
+  filter: invert(38%) sepia(71%) saturate(2595%) hue-rotate(304deg) brightness(93%) contrast(91%);
 }
