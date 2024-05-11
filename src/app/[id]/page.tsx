@@ -53,7 +53,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
                 <>
                   {character && (
                     <Link href={`/characters/${character.url.replace("https://swapi.dev/api/people/", "").replace("/", "")}`}>
-                      <div key={index}>
+                      <div key={index} className="hover:text-primary transition-all ease-in-out duration-300">
                         <h2 className="pl-2 text-lg">{character.name}</h2>
                         <img
                           loading="lazy"
