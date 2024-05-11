@@ -1,6 +1,7 @@
 'use client'
 
 import { CharacterType } from "@/app/types"
+import Link from "next/link"
 import { useState } from "react"
 
 interface AllCharactersProps {
@@ -23,16 +24,18 @@ export default function AllCharacters({ charactersDetails }: AllCharactersProps)
             {charactersDetails?.map((character, index) => (
               <>
                 {character && (
-                  <div key={index}>
-                    <h2 className="pl-2 text-lg">{character.name}</h2>
-                    <img
-                      className="rounded-lg"
-                      src="/character.png"
-                      alt={`${character.name}`}
-                      width={200}
-                      height={100}
-                    />
-                  </div>
+                  <Link href={`/characters/${character.url.replace("https://swapi.dev/api/people/", "").replace("/", "")}`}>
+                    <div key={index} className="hover:text-primary transition-all ease-in-out duration-300">
+                      <h2 className="pl-2 text-lg">{character.name}</h2>
+                      <img
+                        className="rounded-lg"
+                        src="/character.png"
+                        alt={`${character.name}`}
+                        width={200}
+                        height={100}
+                      />
+                    </div>
+                  </Link>
                 )}
               </>))}
           </>
