@@ -12,7 +12,7 @@ export default async function Characters () {
           <Link href={`characters/${character.url.replace("https://swapi.dev/api/people/", "").replace("/", "")}`} key={character.name}>
             <article>
               <h2>{character.name}</h2>
-              {/* img */}
+              <img src="/character.png" alt={character.name} width={400} height={200} />
               <p>{character.eye_color}</p>
               <p>{character.gender}</p>
             </article>
