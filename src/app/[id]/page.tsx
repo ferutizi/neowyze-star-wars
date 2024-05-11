@@ -1,5 +1,6 @@
 import { getFilm, getCharacter } from "../api"
 import { FilmType, CharacterType } from "../types"
+import AllCharacters from "./components/AllCharacters"
 
 export default async function FilmPage({params: {id}}: {params: {id: number}}) {
   const film: FilmType = await getFilm(id)
@@ -30,7 +31,7 @@ export default async function FilmPage({params: {id}}: {params: {id: number}}) {
   return(
     <>
       {film &&
-        <article className="flex flex-col justify-center p-16">
+        <article className="flex flex-col justify-center p-16 pb-4">
           <div className="flex gap-8">
             <img src="/film-banner.jpg" alt={`Banner ${film.title}`} width={800} height={400} />
             <div className="flex flex-col">
@@ -39,15 +40,15 @@ export default async function FilmPage({params: {id}}: {params: {id: number}}) {
               <p className="text-2xl opacity-85">{film.director}</p>
             </div>
           </div>
-          <div>
           <div className="grid grid-cols-6 gap-8 justify-center">
             {
-              charactersDetails.map((character, index) => (
+              charactersDetails.splice(0, 6).map((character, index) => (
                 <>
                   {character && (
                     <div key={index}>
                       <h2 className="pl-2 text-lg">{character.name}</h2>
                       <img
+                        loading="lazy"
                         className="rounded-lg"
                         src="/character.png"
                         alt={`${character.name}`}
@@ -59,7 +60,7 @@ export default async function FilmPage({params: {id}}: {params: {id: number}}) {
                 </>
               ))
             }
-          </div>
+            <AllCharacters charactersDetails={charactersDetails}/>
           </div>
         </article>
       }
