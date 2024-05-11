@@ -36,7 +36,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
       {film &&
         <article className="flex flex-col justify-center p-16 pb-4">
           <div className="flex gap-8">
-            <img src="/film-banner.jpg" alt={`Banner ${film.title}`} width={700} height={400} />
+            <img src="/film-banner.webp" alt={`Banner ${film.title}`} width={700} height={400} />
             <div className="flex flex-col">
               <h1 className="text-5xl mb-4 font-bold">{film.title}</h1>
               <p className="text-4xl text-primary opacity-85">Episode: {getIdFromUrl({ query: { url: film.url, q: "films" } })}</p>
@@ -54,7 +54,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
                         <img
                           loading="lazy"
                           className="rounded-lg"
-                          src="/character.png"
+                          src="/character.webp"
                           alt={`${character.name}`}
                           width={200}
                           height={100}

@@ -29,7 +29,7 @@ export default function AllCharacters({ charactersDetails }: AllCharactersProps)
                       <h2 className="pl-2 text-lg">{character.name}</h2>
                       <img
                         className="rounded-lg"
-                        src="/character.png"
+                        src="/character.webp"
                         alt={`${character.name}`}
                         width={200}
                         height={100}
