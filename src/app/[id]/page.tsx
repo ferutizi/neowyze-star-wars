@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 import { getFilm, getCharacter } from "../api"
 import { FilmType, CharacterType } from "../types"
 import AllCharacters from "./components/AllCharacters"
@@ -27,6 +28,11 @@ export default async function FilmPage({params: {id}}: {params: {id: number}}) {
     })
   )
 
+  function allCharacters() {
+    return <AllCharacters charactersDetails={charactersDetails} />
+  }
+
+  const DynamicAllCharacters = dynamic(async () => allCharacters, {ssr: false})
 
   return(
     <>
@@ -60,7 +66,7 @@ export default async function FilmPage({params: {id}}: {params: {id: number}}) {
                 </>
               ))
             }
-            <AllCharacters charactersDetails={charactersDetails}/>
+            <DynamicAllCharacters />
           </div>
         </article>
       }
