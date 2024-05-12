@@ -8,6 +8,7 @@
 }
 
 .eye-blue,
+.eye-blue-gray,
 .eye-gray-blue {
   filter: invert(21%) sepia(100%) saturate(2224%) hue-rotate(211deg) brightness(90%) contrast(86%);
 }
@@ -32,4 +33,8 @@
 
 .eye-pink {
   filter: invert(38%) sepia(71%) saturate(2595%) hue-rotate(304deg) brightness(93%) contrast(91%);
+}
+
+.eye-white {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(100%) contrast(100%);
 }
