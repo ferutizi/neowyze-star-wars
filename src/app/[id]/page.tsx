@@ -4,6 +4,16 @@ import { FilmType, CharacterType } from "../types"
 import AllCharacters from "./components/AllCharacters"
 import Link from "next/link"
 import { getIdFromUrl } from "../hooks/useGetIdFromUrl"
+import { Metadata } from "next"
+
+export async function generateMetadata({ params: { id } }: { params: { id: number } }): Promise<Metadata> {
+  const film = await getFilm(id)
+
+  return {
+    title: `${film.title} - Star Wars`,
+    description: film.opening_crawl
+  }
+}
 
 export default async function FilmPage({ params: { id } }: { params: { id: number } }) {
   const film: FilmType = await getFilm(id)

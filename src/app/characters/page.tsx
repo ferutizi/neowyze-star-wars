@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { getCharacters } from "../api";
 import { getIdFromUrl } from "../hooks/useGetIdFromUrl";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Star Wars Characters - Neowyze`,
+  description: "Characters of Star Wars films",
+};
 
 export default async function Characters() {
   const characters = await getCharacters()

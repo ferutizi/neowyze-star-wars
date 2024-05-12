@@ -1,5 +1,15 @@
+import { Metadata } from "next"
 import { getCharacter } from "../../api"
 import { CharacterType } from "../../types"
+
+export async function generateMetadata({ params: { id } }: { params: { id: string } }): Promise<Metadata> {
+  const character = await getCharacter(id)
+
+  return {
+    title: `${character.name} - Star Wars`,
+    description: `${character.name} character Star Wars`
+  }
+}
 
 export default async function CharacterPage({ params: { id } }: { params: { id: string } }) {
   const character: CharacterType = await getCharacter(id)
