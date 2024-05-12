@@ -36,14 +36,14 @@ export default function LoadMore() {
                   gender !== "n/a" &&
                   <div className="flex items-center gap-4">
                     <p className="text-xl py-2">{gender}</p>
-                    <img className="h-4" src={`/${gender}.webp`} alt="eye" height={8} />
+                    <img className="h-4" src={`/${gender}.webp`} alt="eye" height={'auto'} />
                   </div>
                 }
                 {
                   eye_color !== "unknown" &&
                   eye_color !== "n/a" &&
                   <div className="flex items-center gap-4">
-                    <img className={`h-6 eye ${"eye-" + eye_color}`} src="eye.webp" alt="eye" height={8} />
+                    <img className={`h-6 eye ${"eye-" + eye_color}`} src="eye.webp" alt="eye" height={'auto'} />
                     <p className="text-xl py-2">{eye_color}</p>
                   </div>
                 }
