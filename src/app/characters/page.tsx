@@ -11,9 +11,17 @@ export const metadata: Metadata = {
   description: "Characters of Star Wars films",
 };
 
-export default async function Characters({ searchParams }: { searchParams?: { gender?: string } }) {
+export default async function Characters({
+  searchParams
+}: {
+  searchParams?: {
+    gender?: string,
+    eye_color?: string
+  }
+}) {
   const characters = await getCharacters(1)
   const gender = searchParams?.gender
+  const eye_color = searchParams?.eye_color
 
   return (
     <>
@@ -24,8 +32,8 @@ export default async function Characters({ searchParams }: { searchParams?: { ge
             characters
               .filter(ch =>
                 /* if isActive is false or filter match with character prop-- > map */
-                /* (!filters.eye.isActive || ch.eye_color === filters.eye.color) && */
-                (ch.gender === gender)
+                (!eye_color || ch.eye_color === eye_color) &&
+                (!gender || ch.gender === gender)
               )
               .map(({ name, url, gender, eye_color }) =>
                 <article key={name} className="flex flex-col items-center">
