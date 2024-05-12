@@ -33,3 +33,18 @@ export type CharacterType = {
   edited: string,
   url: string
 }
+
+type genderType = {
+  isActive: boolean,
+  gen: 'male' | 'female'
+}
+
+type eyeType = {
+  isActive: boolean,
+  color: string
+}
+
+export type FiltersType = {
+  gender: genderType,
+  eye: eyeType
+}
