@@ -26,14 +26,19 @@ export const getFilm = async (id: number): Promise<FilmType> => {
 
 }
 
-export const getCharacters = async (): Promise<CharacterType[]> => {
+export const getCharacters = async (page?: string): Promise<CharacterType[]> => {
   try {
-    const res = await fetch("https://swapi.dev/api/people")
-    const characters = await res.json()
-
-    return characters.results
+    if (page === undefined) {
+      const res = await fetch(`https://swapi.dev/api/people`)
+      const characters = await res.json()
+      return characters.results
+    } else {
+      const res = await fetch(`https://swapi.dev/api/people/?page=${page}`)
+      const characters = await res.json()
+      return characters.results
+    }
   } catch (error) {
-    console.log(`Error al obtener los personajes:`, error)
+    console.log(`Error al obtener los personajes: `, error)
     throw error
   }
 }
