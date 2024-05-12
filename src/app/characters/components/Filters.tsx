@@ -9,7 +9,7 @@ export default function Filters() {
 
   const handleSearchGender = (term: string) => {
     const params = new URLSearchParams(searchParams)
-    if (term) {
+    if (term !== "all") {
       params.set('gender', term)
     } else {
       params.delete('gender')
@@ -18,10 +18,43 @@ export default function Filters() {
     replace(`${pathname}?${params.toString()}`)
   }
 
+  const handleSearchEye = (term: string) => {
+    const params = new URLSearchParams(searchParams)
+    if (term !== "all") {
+      params.set('eye_color', term)
+    } else {
+      params.delete('eye_color')
+    }
+
+    replace(`${pathname}?${params.toString()}`)
+  }
+
   return (
-    <>
-      <button onClick={() => handleSearchGender('male')}>male</button>
-      <button onClick={() => handleSearchGender('female')}>female</button>
-    </>
+    <form className="flex gap-8">
+      <label>
+        Gender:
+        <select
+          className="text-black"
+          defaultValue="all"
+          onChange={(e) => handleSearchGender(e.target.value)}
+        >
+          <option value="all" > All</option >
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select >
+      </label >
+      <label>
+        Eye Color
+        <select
+          defaultValue="all"
+          className="text-black"
+          onChange={(e) => handleSearchEye(e.target.value)}
+        >
+          <option value="all">All</option>
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+        </select>
+      </label>
+    </form >
   )
 }
