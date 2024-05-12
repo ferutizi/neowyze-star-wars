@@ -44,7 +44,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
   return (
     <>
       {film &&
-        <article className="flex flex-col justify-center p-16 pb-4">
+        <article className="flex flex-col justify-center p-14 pb-4">
           <div className="flex gap-8">
             <img src="/film-banner.webp" alt={`Banner ${film.title}`} width={700} height={400} />
             <div className="flex flex-col">
