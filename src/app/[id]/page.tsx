@@ -53,7 +53,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
               <p className="text-2xl opacity-85">{film.director}</p>
             </div>
           </div>
-          <h3></h3>
+          <h3 className="m-auto text-2xl my-8 text-primary opacity-85">Characters</h3>
           <div className="grid grid-cols-6 gap-8 justify-center">
             {
               charactersDetails.splice(0, 6).map((character, index) => (
