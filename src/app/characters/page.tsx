@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getCharacters } from "../api";
 import { getIdFromUrl } from "../hooks/useGetIdFromUrl";
 import { Metadata } from "next";
+import LoadMore from "./components/LoadMore";
 
 export const metadata: Metadata = {
   title: `Star Wars Characters - Neowyze`,
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Characters() {
-  const characters = await getCharacters()
+  const characters = await getCharacters(1)
 
   return (
     <section className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 p-14">
@@ -41,6 +42,7 @@ export default async function Characters() {
           </article>
         )
       }
+      <LoadMore />
     </section>
   )
 }
