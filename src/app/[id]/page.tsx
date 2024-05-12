@@ -44,7 +44,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
   return (
     <>
       {film &&
-        <article className="flex flex-col justify-center p-14 pb-4">
+        <section className="flex flex-col justify-center p-14 pb-4">
           <div className="flex gap-8">
             <img src="/film-banner.webp" alt={`Banner ${film.title}`} width={700} height={400} />
             <div className="flex flex-col">
@@ -53,13 +53,14 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
               <p className="text-2xl opacity-85">{film.director}</p>
             </div>
           </div>
+          <h3></h3>
           <div className="grid grid-cols-6 gap-8 justify-center">
             {
               charactersDetails.splice(0, 6).map((character, index) => (
                 <>
                   {character && (
                     <Link href={`/characters/${getIdFromUrl({ query: { url: character.url, q: "people" } })}`}>
-                      <div key={index} className="hover:text-primary transition-all ease-in-out duration-300">
+                      <article key={index} className="hover:text-primary transition-all ease-in-out duration-300">
                         <h2 className="pl-2 text-lg">{character.name}</h2>
                         <img
                           loading="lazy"
@@ -69,7 +70,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
                           width={200}
                           height={100}
                         />
-                      </div>
+                      </article>
                     </Link >
                   )}
                 </>
@@ -77,7 +78,7 @@ export default async function FilmPage({ params: { id } }: { params: { id: numbe
             }
             <DynamicAllCharacters />
           </div>
-        </article >
+        </section >
       }
     </>
   )
