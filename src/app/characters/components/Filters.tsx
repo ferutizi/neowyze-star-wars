@@ -30,29 +30,37 @@ export default function Filters() {
   }
 
   return (
-    <form className="flex gap-8">
-      <label>
+    <form className="flex gap-8 justify-center text-lg pt-14 pb-8">
+      <label className="flex gap-4">
         Gender:
         <select
-          className="text-black"
+          className="text-background w-36 pl-1 rounded-lg outline-none"
           defaultValue="all"
           onChange={(e) => handleSearchGender(e.target.value)}
         >
-          <option value="all" > All</option >
+          <option value="all">All</option >
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select >
       </label >
-      <label>
+      <label className="flex gap-4">
         Eye Color
         <select
           defaultValue="all"
-          className="text-black"
+          className="text-background w-36 pl-1 rounded-lg outline-none"
           onChange={(e) => handleSearchEye(e.target.value)}
         >
           <option value="all">All</option>
           <option value="red">Red</option>
           <option value="blue">Blue</option>
+          <option value="yellow">Yellow</option>
+          <option value="gold">Gold</option>
+          <option value="orange">Orange</option>
+          <option value="black">Black</option>
+          <option value="white">White</option>
+          <option value="pink">Pink</option>
+          <option value="brown">Brown</option>
+          <option value="hazel">Hazel</option>
         </select>
       </label>
     </form >
