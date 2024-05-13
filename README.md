@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Star Wars
+## Neowyze Frontend Challenge
 
-## Getting Started
+You can see the app deployed in Vercel. Click [Here]()
 
-First, run the development server:
+you can also run in local:
 
-```bash
+##Run local:
+
+1. Install npm package
+
+```
+npm install
+# or
+pnpm install
+```
+
+2. Clone the repository
+
+```
+git clone https://github.com/ferutizi/neowyze-star-wars
+```
+
+3. Run development server 
+
+```
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open http://localhost:3000 with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologies
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Next.js 14
+- TypeScript
+- Tailwind CSS
 
-## Learn More
+## Resources
 
-To learn more about Next.js, take a look at the following resources:
+- [SWAPI](https://swapi.dev/)
+- react-intersection-observer: React implementation of the Intersection Observer API
+```
+npm i react-intersection-observer
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- E-mail: fer.utizi@gmail.com
+- [Portfolio](https://ferutizi.github.io/Portfolio/)
+- [Linkedin](https://www.linkedin.com/in/fernando-utizi-2a72a3233/)
