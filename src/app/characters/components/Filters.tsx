@@ -35,7 +35,7 @@ export default function Filters() {
         Gender:
         <select
           className="text-background w-36 pl-1 rounded-lg outline-none"
-          defaultValue="all"
+          defaultValue={searchParams.get('gender')?.toString() || 'all'}
           onChange={(e) => handleSearchGender(e.target.value)}
         >
           <option value="all">All</option >
@@ -46,7 +46,7 @@ export default function Filters() {
       <label className="flex gap-4">
         Eye Color
         <select
-          defaultValue="all"
+          defaultValue={searchParams.get('eye_color')?.toString() || 'all'}
           className="text-background w-36 pl-1 rounded-lg outline-none"
           onChange={(e) => handleSearchEye(e.target.value)}
         >
