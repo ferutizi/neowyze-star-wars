@@ -25,7 +25,7 @@ export default function LoadMore({ gender, eyeColor }: LoadMoreProps) {
       })
       page++
     }
-  }, [inView])
+  }, [inView, characters])
 
   return (
     <>
