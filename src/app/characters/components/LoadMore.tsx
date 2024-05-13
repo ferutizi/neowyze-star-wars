@@ -77,7 +77,7 @@ export default function LoadMore({ gender, eyeColor }: LoadMoreProps) {
       {/* You can replace the condition with 'next' property. getCharacters returns only 'results' prop */}
       {/* character.next !== null */}
       {page < 10 &&
-        < div ref={ref}>Cargando mas...</div >
+        < div ref={ref}>Loading...</div >
       }
     </>
   )
