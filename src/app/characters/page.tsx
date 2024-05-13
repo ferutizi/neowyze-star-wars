@@ -63,7 +63,7 @@ export default async function Characters({
               )
           }
         </Suspense>
-        {/*         <LoadMore filters={filters} /> */}
+        <LoadMore gender={gender} eyeColor={eye_color} />
       </section>
     </>
   )
