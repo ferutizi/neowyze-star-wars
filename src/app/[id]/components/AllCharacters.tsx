@@ -12,7 +12,7 @@ export default function AllCharacters({ charactersDetails }: AllCharactersProps)
   const [viewAll, setViewAll] = useState<boolean>(false)
 
   return (
-    <div className="grid col-span-6 grid-cols-6 gap-8 w-100vw justify-center">
+    <div className="flex flex-wrap gap-8 justify-center items-center mt-8 lg:px-52">
       {
         !viewAll ?
           <button
@@ -26,7 +26,7 @@ export default function AllCharacters({ charactersDetails }: AllCharactersProps)
                 {character && (
                   <Link href={`/characters/${character.url.replace("https://swapi.dev/api/people/", "").replace("/", "")}`}>
                     <article key={index} className="hover:text-primary transition-all ease-in-out duration-300">
-                      <h2 className="pl-2 text-lg">{character.name}</h2>
+                      <h2 className="pl-2 text-lg text-center lg:text-start">{character.name}</h2>
                       <img
                         className="rounded-lg"
                         src="/character.webp"
