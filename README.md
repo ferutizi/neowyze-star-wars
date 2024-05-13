@@ -1,7 +1,7 @@
 # Star Wars
 ## Neowyze Frontend Challenge
 
-You can see the app deployed in Vercel. Click [Here]()
+You can see the app deployed in Vercel. Click [Here](https://star-wars-ruddy-eta.vercel.app/)
 
 you can also run in local:
 
