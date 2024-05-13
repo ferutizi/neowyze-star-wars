@@ -30,7 +30,7 @@ export default function Filters() {
   }
 
   return (
-    <form className="flex gap-8 justify-center text-lg pt-14 pb-8">
+    <form className="flex flex-col md:flex-row gap-4 md:gap-8 items-end w-fit m-auto justify-center text-2xl md:text-lg pt-14 pb-8">
       <label className="flex gap-4">
         Gender:
         <select
