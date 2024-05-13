@@ -27,11 +27,10 @@ export default async function Characters({
     <>
       <Filters />
       <section className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 p-14 pt-0">
-        <Suspense key={gender}>
+        <Suspense key={`${gender}-${eye_color}`}>
           {
             characters
               .filter(ch =>
-                /* if isActive is false or filter match with character prop-- > map */
                 (!eye_color || ch.eye_color.includes(eye_color)) &&
                 (!gender || ch.gender === gender)
               )
