@@ -20,9 +20,11 @@ export default function LoadMore({ gender, eyeColor }: LoadMoreProps) {
 
   useEffect(() => {
     if (inView) {
-      getCharacters(page).then((res) => {
-        setCharacters([...characters, ...res])
-      })
+      if (page < 10) {
+        getCharacters(page).then((res) => {
+          setCharacters([...characters, ...res])
+        })
+      }
       page++
     }
   }, [inView, characters])
