@@ -1,3 +1,4 @@
+import './components/EyeColors.css'
 import Link from "next/link";
 import { getCharacters } from "../api";
 import { getIdFromUrl } from "../hooks/useGetIdFromUrl";
