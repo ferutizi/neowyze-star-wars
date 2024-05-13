@@ -19,10 +19,10 @@ export default async function CharacterPage({ params: { id } }: { params: { id: 
   return (
     <>
       {character &&
-        <section className="flex gap-8 p-16">
-          <img className="rounded-lg" src="/character.webp" alt={name} width={400} height={200} />
+        <section className="flex flex-col md:flex-row text-center md:text-left gap-8 p-4 md:p-16">
+          <img className="rounded-lg m-auto lg:m-0" src="/character.webp" alt={name} width={400} height={200} />
           <div className="flex flex-col gap-2">
-            <h1 className="text-5xl text-primary font-bold">{name}</h1>
+            <h1 className="text-5xl text-primary font-bold pb-4 md:pb-0">{name}</h1>
             {eye_color !== "uknwon" && eye_color !== "n/a" &&
               <p>Eye color: {eye_color}</p>
             }
