@@ -44,16 +44,26 @@ export default function LoadMore({ gender, eyeColor }: LoadMoreProps) {
                   {
                     gender !== "unknown" &&
                     gender !== "n/a" &&
+                    gender !== "none" &&
                     <div className="flex items-center gap-4">
                       <p className="text-xl py-2">{gender}</p>
-                      <img className="h-4" src={`/${gender}.webp`} alt="eye" height={'auto'} />
+                      <img
+                        className="h-4"
+                        src={`/${gender === 'male' ? 'male' : ''}${gender === 'female' ? 'female' : ''}.webp`} alt={`gender ${gender}`}
+                        height={'auto'}
+                      />
                     </div>
                   }
                   {
                     eye_color !== "unknown" &&
                     eye_color !== "n/a" &&
                     <div className="flex items-center gap-4">
-                      <img className={`h-6 eye ${"eye-" + eye_color}`} src="eye.webp" alt="eye" height={'auto'} />
+                      <img
+                        className={`h-6 eye ${"eye-" + eye_color}`}
+                        src="eye.webp"
+                        alt="eye"
+                        height={'auto'}
+                      />
                       <p className="text-xl py-2">{eye_color}</p>
                     </div>
                   }
