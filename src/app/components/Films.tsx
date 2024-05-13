@@ -13,7 +13,7 @@ export default async function Films() {
           <Link href={`/${getIdFromUrl({ query: { url: film.url, q: "films" } })}`} key={film.episode_id}>
             <article>
               <h2 className="text-2xl text-primary font-bold">{film.title}</h2>
-              <Image src="/film-banner.webp" alt={`Banner ${film.title}`} width={500} height={250} priority={true} />
+              <Image src="/film-banner.webp" alt={`Banner ${film.title}`} width={500} height={250} />
               <p className="text-xl py-2">Episode {getIdFromUrl({ query: { url: film.url, q: "films" } })}</p>
             </article>
           </Link>
