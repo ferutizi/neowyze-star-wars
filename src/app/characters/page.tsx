@@ -24,7 +24,7 @@ export default async function Characters({
   const eye_color = searchParams?.eye_color
 
   return (
-    <>
+    <main className="mt-[72px]">
       <Filters />
       <section className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 p-14 pt-0">
         <Suspense key={`${gender}-${eye_color}`}>
@@ -64,6 +64,6 @@ export default async function Characters({
         </Suspense>
         <LoadMore gender={gender} eyeColor={eye_color} />
       </section>
-    </>
+    </main>
   )
 }
