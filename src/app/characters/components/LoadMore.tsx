@@ -8,12 +8,13 @@ import Link from "next/link"
 import { getIdFromUrl } from "@/app/hooks/useGetIdFromUrl"
 
 interface LoadMoreProps {
-  filters: FiltersType
+  gender?: string,
+  eyeColor?: string
 }
 
 let page = 2;
 
-export default function LoadMore({ filters }: LoadMoreProps) {
+export default function LoadMore({ gender, eyeColor }: LoadMoreProps) {
   const [characters, setCharacters] = useState<CharacterType[]>([])
   const { ref, inView } = useInView()
 
@@ -31,8 +32,8 @@ export default function LoadMore({ filters }: LoadMoreProps) {
       {
         characters
           .filter(ch =>
-            (!filters.eye.isActive || ch.eye_color === filters.eye.color) &&
-            (!filters.gender.isActive || ch.gender === filters.gender.gen)
+            (!eyeColor || ch.eye_color.includes(eyeColor)) &&
+            (!gender || ch.gender === gender)
           )
           .map(({ name, url, gender, eye_color }) =>
             <article key={name} className="flex flex-col items-center">
