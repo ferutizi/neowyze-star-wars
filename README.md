@@ -5,13 +5,15 @@ You can see the app deployed in Vercel. Click [Here](https://star-wars-ruddy-eta
 
 you can also run in local:
 
-##Run local:
+## Run local:
 
 1. Install npm package
 
 ```
 npm install
-# or
+```
+or
+```
 pnpm install
 ```
 
@@ -25,9 +27,13 @@ git clone https://github.com/ferutizi/neowyze-star-wars
 
 ```
 npm run dev
-# or
+```
+or
+```
 yarn dev
-# or
+```
+or
+```
 pnpm dev
 ```
 
