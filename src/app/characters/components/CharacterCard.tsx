@@ -11,7 +11,7 @@ export default function CharacterCard({ character }: CharacterCardProps) {
   const { name, url, gender, eye_color } = character
 
   return (
-    <article key={name} className="flex flex-col items-center">
+    <article className="flex flex-col items-center">
       <Link href={`characters/${getIdFromUrl({ query: { url: url, q: "people" } })}`}>
         <h2 className="text-2xl pl-2 text-primary font-bold">{name}</h2>
         <img className="rounded-lg" src="/character.webp" alt={name} width={400} height={200} />
