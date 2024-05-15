@@ -34,7 +34,7 @@ export default async function Characters({
                 (!gender || ch.gender === gender)
               )
               .map((character) =>
-                <CharacterCard character={character} />
+                <CharacterCard key={character.name} character={character} />
               )
           }
         </Suspense>
