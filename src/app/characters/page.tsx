@@ -1,4 +1,3 @@
-import "./eyeColors.css"
 import { getCharacters } from "../api";
 import { Metadata } from "next";
 import LoadMore from "./components/LoadMore";
