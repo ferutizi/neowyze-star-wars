@@ -37,7 +37,7 @@ export default function LoadMore({ gender, eyeColor }: LoadMoreProps) {
             (!gender || ch.gender === gender)
           )
           .map((character) =>
-            <CharacterCard character={character} />
+            <CharacterCard key={character.name} character={character} />
           )
       }
       {/* You can replace the condition with 'next' property. getCharacters returns only 'results' prop */}
