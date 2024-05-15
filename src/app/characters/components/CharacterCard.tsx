@@ -1,4 +1,3 @@
-import "./eyeColors.css"
 import { getIdFromUrl } from "@/app/hooks/useGetIdFromUrl"
 import { CharacterType } from "@/app/types"
 import Link from "next/link"
